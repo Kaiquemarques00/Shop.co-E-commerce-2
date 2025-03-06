@@ -20,15 +20,15 @@ export class CategoryService {
 
     async show(id: string) {
 
-        const reviews = await this.prisma.category.findUnique({
+        const categories = await this.prisma.category.findUnique({
             where: {
                 id
             }
         });
 
-        if (!reviews) return new NotFoundException(`A categoria ${id} não existe.`);
+        if (!categories) return new NotFoundException(`A categoria ${id} não existe.`);
 
-        return reviews;
+        return categories;
     }
 
     async exists(id: string) {
