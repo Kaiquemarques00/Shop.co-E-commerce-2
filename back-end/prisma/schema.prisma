@@ -24,6 +24,9 @@ model Product {
   color String
   size String
   product_img String
+  tag String?
+  discount Int?
+  price_discount String?
   created_at DateTime? @default(now())
 
   @@map("products")

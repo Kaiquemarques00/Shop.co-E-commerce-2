@@ -31,15 +31,30 @@ export class ProductService {
         return products;
     }
 
-    async showByCategory(category: string) {
+    async showByCategory(category_id: string) {
 
         const products = await this.prisma.product.findMany({
             where: {
-                category_id: category
+                category_id
             }
         });
 
-        if (!products) return new NotFoundException(`Não existe produtos na categoria ${category}.`);
+        if (!products || products.length === 0) {
+            throw new NotFoundException(`Não existe produtos na categoria ${category_id}.`);
+        }
+
+        return products;
+    }
+
+    async showByTag(tag: string) {
+
+        const products = await this.prisma.product.findMany({
+            where: {
+                tag: tag
+            }
+        });
+
+        if (!products || products.length === 0) return new NotFoundException(`Não existe produtos na tag ${tag}.`);
 
         return products;
     }

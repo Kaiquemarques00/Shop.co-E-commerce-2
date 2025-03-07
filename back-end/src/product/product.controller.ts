@@ -27,7 +27,8 @@ import { ImgInterceptor } from "src/interceptors/img.interceptor";
         ...data,
         amount: Number(data.amount),
         rating: Number(data.rating),
-        product_img: `http://localhost:3000/uploads/products/${file.filename}`, // Caminho completo da imagem
+        discount: Number(data.discount),
+        product_img: file.filename, // Caminho completo da imagem
       };
   
       return this.productService.create(productData);
@@ -43,9 +44,14 @@ import { ImgInterceptor } from "src/interceptors/img.interceptor";
       return this.productService.show(id);
     }
 
-    @Get("")
-    async showByCategory(@Query() category: string) {
-      return this.productService.showByCategory(category);
+    @Get("category/:category_id")
+    async showByCategory(@Param('category_id') category_id: string) {
+      return this.productService.showByCategory(category_id);
+    }
+
+    @Get("tag/:tag")
+    async showByTag(@Param('tag') tag: string) {
+      return this.productService.showByTag(tag);
     }
   }
   
