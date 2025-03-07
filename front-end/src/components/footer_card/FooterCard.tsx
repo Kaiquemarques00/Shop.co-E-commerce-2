@@ -1,4 +1,3 @@
-import { link } from "fs";
 import Socials from "../socials/Socials";
 
 interface PropsFooterCard {

@@ -25,9 +25,9 @@ import { ImgInterceptor } from "src/interceptors/img.interceptor";
       // Convertendo 'amount' e 'rating' para números antes da validação
       const productData = {
         ...data,
-        amount: Number(data.amount),  // Converte para número
-        rating: Number(data.rating), // Converte para número
-        product_img: file.filename,
+        amount: Number(data.amount),
+        rating: Number(data.rating),
+        product_img: `http://localhost:3000/uploads/products/${file.filename}`, // Caminho completo da imagem
       };
   
       return this.productService.create(productData);

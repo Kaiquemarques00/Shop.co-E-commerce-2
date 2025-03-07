@@ -1,6 +1,6 @@
 const Brands = () => {
   return (
-    <article className="brands bg-black flex justify-center gap-4 sm:gap-8 items-center flex-wrap py-10 z-10">
+    <article className="brands bg-black flex relative justify-center gap-4 sm:gap-8 items-center flex-wrap py-10 z-10 mt-38">
       <figure className="hidden lg:block">
         <img src="./assets/Versace.svg" alt="Versace logo" />
       </figure>
