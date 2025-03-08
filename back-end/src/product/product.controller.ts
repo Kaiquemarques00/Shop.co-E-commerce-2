@@ -25,8 +25,9 @@ import { ImgInterceptor } from "src/interceptors/img.interceptor";
       // Convertendo 'amount' e 'rating' para números antes da validação
       const productData = {
         ...data,
-        amount: Number(data.amount),  // Converte para número
-        rating: Number(data.rating), // Converte para número
+        amount: Number(data.amount),
+        rating: Number(data.rating),
+        discount: Number(data.discount),
         product_img: file.filename,
       };
   
@@ -43,9 +44,14 @@ import { ImgInterceptor } from "src/interceptors/img.interceptor";
       return this.productService.show(id);
     }
 
-    @Get("")
-    async showByCategory(@Query() category: string) {
-      return this.productService.showByCategory(category);
+    @Get("category/:category_id")
+    async showByCategory(@Param('category_id') category_id: string) {
+      return this.productService.showByCategory(category_id);
+    }
+
+    @Get("tag/:tag")
+    async showByTag(@Param('tag') tag: string) {
+      return this.productService.showByTag(tag);
     }
   }
   

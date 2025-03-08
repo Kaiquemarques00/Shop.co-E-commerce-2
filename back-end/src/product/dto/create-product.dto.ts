@@ -8,6 +8,8 @@ export class CreateProductDTO {
     price: string;
     color: string;
     size: string;
+    tag?: string;
+    price_discount?: string;
     
     product_img: any;
 
@@ -23,4 +25,7 @@ export class CreateProductDTO {
     @Max(5)
     @Transform(({ value }) => Number(value)) // Converte o valor para número
     rating: number;
+
+    @IsNumber()
+    discount?: number;
 }
