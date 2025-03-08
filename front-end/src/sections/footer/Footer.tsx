@@ -24,11 +24,11 @@ export default function Footer() {
             Shop.co &copy; 2000-2023, All Rights Reserved
           </p>
           <ul className="flex gap-3">
-            <Payments imgSrc="./assets/Visa.svg" imgAlt="Visa Icon"/>
-            <Payments imgSrc="./assets/Mastercard.svg" imgAlt="Mastercard Icon"/>
-            <Payments imgSrc="./assets/Paypal.svg" imgAlt="Paypal Icon"/>
-            <Payments imgSrc="./assets/Apple_pay.svg" imgAlt="Apple-pay Icon"/>
-            <Payments imgSrc="./assets/Google_pay.svg" imgAlt="Google-pay Icon"/>
+            <Payments imgSrc="/assets/Visa.svg" imgAlt="Visa Icon"/>
+            <Payments imgSrc="/assets/Mastercard.svg" imgAlt="Mastercard Icon"/>
+            <Payments imgSrc="/assets/Paypal.svg" imgAlt="Paypal Icon"/>
+            <Payments imgSrc="/assets/Apple_pay.svg" imgAlt="Apple-pay Icon"/>
+            <Payments imgSrc="/assets/Google_pay.svg" imgAlt="Google-pay Icon"/>
           </ul>
         </aside>
       </div>

@@ -26,7 +26,7 @@ const Rating = (props: PropsRating) => {
         {stars.map((star, index) =>
           star ? (
             <li key={index}>
-                <img src={star} alt="Star" className="star" />
+                <img src={star} alt="Star" className="star h-full" />
             </li>
           ) : null
         )}

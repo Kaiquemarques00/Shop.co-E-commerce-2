@@ -51,6 +51,9 @@ export class ProductService {
         const products = await this.prisma.product.findMany({
             where: {
                 tag: tag
+            },
+            orderBy: {
+                created_at: 'asc'
             }
         });
 

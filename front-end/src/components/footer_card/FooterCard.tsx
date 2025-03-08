@@ -12,20 +12,20 @@ const FooterCard = (props: PropsFooterCard) => {
       <h1 className="text-3xl font-bold">{props.title}</h1>
       <p className="text-sm opacity-60">{props.content}</p>
       <ul className="flex gap-3 mt-4">
-        <Socials href="#" imgSrc="./assets/Twitter.svg" imgAlt="Twitter logo" />
+        <Socials href="#" imgSrc="/assets/Twitter.svg" imgAlt="Twitter logo" />
         <Socials
           href="#"
-          imgSrc="./assets/Facebook.svg"
+          imgSrc="/assets/Facebook.svg"
           imgAlt="Facebook logo"
           status="bg-black"
           height="h-[20px]"
         />
         <Socials
           href="#"
-          imgSrc="./assets/Instagram.svg"
+          imgSrc="/assets/Instagram.svg"
           imgAlt="Instragram logo"
         />
-        <Socials href="#" imgSrc="./assets/Github.svg" imgAlt="Github logo" />
+        <Socials href="#" imgSrc="/assets/Github.svg" imgAlt="Github logo" />
       </ul>
     </div>
   ) : (

@@ -28,7 +28,7 @@ import { ImgInterceptor } from "src/interceptors/img.interceptor";
         amount: Number(data.amount),
         rating: Number(data.rating),
         discount: Number(data.discount),
-        product_img: file.filename, // Caminho completo da imagem
+        product_img: file.filename,
       };
   
       return this.productService.create(productData);

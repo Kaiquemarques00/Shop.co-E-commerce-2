@@ -11,7 +11,7 @@ const Arrivals = () => {
   console.log(products)
 
   useEffect(() => {
-    axios.get('http://localhost:3001/products')
+    axios.get('http://localhost:3001/products/tag/new-arrivals')
       .then(response => setProducts(response.data))
       .catch(error => console.error(error));
   }, []);
@@ -25,7 +25,7 @@ const Arrivals = () => {
 
       <article className="flex overflow-hidden justify-around mb-5">
         {products.map((product: any) => (
-          <ProductCard productImg={`http://localhost:3001/uploads/products/${product.product_img}`} title={product.name_product} rating={product.rating} price={product.price} discount={product.discount} priceWithDiscount={product.price_discount}/>
+          <ProductCard key={product.id} href={`/product/${product.id}`} productImg={`http://localhost:3001/uploads/products/${product.product_img}`} title={product.name_product} rating={product.rating} price={product.price} discount={product.discount} priceWithDiscount={product.price_discount}/>
         ))}
       </article>
 

@@ -8,7 +8,7 @@ const Newsletter = () => {
           </h1>
           <form className="w-full md:w-1/3 space-y-2">
             <div className="flex items-center bg-white rounded-full px-4 h-11">
-              <Image src="./assets/Email.svg" alt="Email icon" width={24} height={24} className="mr-3" />
+              <Image src="/assets/Email.svg" alt="Email icon" width={24} height={24} className="mr-3" />
               <input
                 type="email"
                 placeholder="Enter your email address"

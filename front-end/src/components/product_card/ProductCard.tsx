@@ -1,4 +1,6 @@
+import Link from "next/link";
 import Rating from "../rating/Rating";
+import ProductImg from "../product_img/ProductImg";
 
 interface PropsProductCard {
     productImg: string;
@@ -7,6 +9,7 @@ interface PropsProductCard {
     price: string;
     discount?: string;
     priceWithDiscount?: string;
+    href: string;
 }
 
 const ProductCard = (props: PropsProductCard) => {
@@ -15,11 +18,9 @@ const ProductCard = (props: PropsProductCard) => {
 
     return (
         <article className="flex flex-col min-w-[198px] ml-4">
-            <img
-              src={props.productImg}
-              alt="T-shirt"
-              className="min-w-full h-[200px] rounded-[20px]"
-            />
+            <Link href={props.href}>
+              <ProductImg productImg={props.productImg} styles="min-w-full h-[200px]"/>
+            </Link>
           <h2 className="text-[clamp(16px,2vw,20px)]">
             {props.title}
           </h2>
@@ -36,7 +37,7 @@ const ProductCard = (props: PropsProductCard) => {
             <p className="font-bold text-lg">{props.priceWithDiscount}</p>
             <p className="text-lg line-through opacity-60">{props.price}</p>
             <p className="text-xs bg-red-100 text-red-500 px-2 py-1 rounded-full">
-              {props.discount}
+              {`-${props.discount}%`}
             </p>
           </div>
           ) : (

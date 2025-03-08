@@ -16,7 +16,7 @@ const Banner = () => {
         </p>
       </article>
 
-      <Button content="Shop now" href="/shop" bgColor="bg-black" contentColor="text-white" containerStyle="lg:mx-0 lg:ml-15"/>
+      <Button content="Shop now" href="/shop" bgColor="bg-black" contentColor="text-white" containerStyle="lg:mx-0 lg:ml-15 lg:w-2/12"/>
 
       <ul className="grid grid-cols-2 gap-x-3 sm:gap-x-5 sm:grid-cols-3 lg:grid-cols-3 lg:h-[150px] sm:w-full lg:w-6/12 p-4 mt-3 px-6 z-10 lg:ml-6">
         <StoreInformation title="200+" content="International Brands" containerStyle="border-r-1 border-gray-300"/>
