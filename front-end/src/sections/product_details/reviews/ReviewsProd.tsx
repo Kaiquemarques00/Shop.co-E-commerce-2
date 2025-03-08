@@ -34,6 +34,16 @@ const ReviewsProd = () => {
             <ReviewCard rating={5.0} name="Samantha D." comment="I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt."/>
             <ReviewCard rating={2.5} name="Samantha D." comment="I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt."/>
       </article>
+      <article className="flex justify-center mt-8 w-7/12 lg:w-3/12 m-auto">
+      <Button
+            content="Load More Reviews"
+            href="/"
+            bgColor="bg-white"
+            contentColor="text-black h-[50px] text-sm md:text-base"
+            containerStyle="lg:mx-0"
+            border="border-1 border-[rgba(0,0,0,0.1)]"
+          />
+      </article>
     </section>
   );
 };

@@ -1,5 +1,6 @@
 import Footer from "@/sections/footer/Footer";
 import Header from "@/sections/header/Header";
+import MoreProducts from "@/sections/product_details/more_products/MoreProducts";
 import Product from "@/sections/product_details/product/Product";
 import ReviewsProd from "@/sections/product_details/reviews/ReviewsProd";
 import Tabs from "@/sections/product_details/tabs/Tabs";
@@ -31,8 +32,8 @@ const productDetails = () => {
             <Product/>
             <Tabs />
             <ReviewsProd />
-            
-            {/* <Footer /> */}
+            <MoreProducts />
+            <Footer />
         </>
      );
 }

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="w-full px-25 pb-12 footer-gradient">
+    <footer className="w-full px-5 lg:px-25 pb-12 footer-gradient">
       <div className="max-w-7xl mx-auto flex flex-col gap-12">
 
         <Newsletter />
