@@ -3,18 +3,41 @@ import Color from "@/components/color/Color";
 import ProductImg from "@/components/product_img/ProductImg";
 import Rating from "@/components/rating/Rating";
 import Size from "@/components/size/Size";
+
 import { useRouter } from "next/router";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Product = () => {
   const router = useRouter();
   const { id } = router.query;
   console.log(id);
 
-  return (
+  const [product, setProduct] = useState<any>(null);
+
+  console.log(product);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:3001/products/${id}`
+        );
+
+        setProduct(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, [id]);
+
+  return product ? (
     <section className="p-4 md:px-25 flex flex-col md:flex-row md:gap-10">
       <article className="grid grid-cols-3 gap-2 md:grid-cols-[150px_1fr] md:gap-3 md:grid-rows-3 md:w-6/12">
         <ProductImg
-          productImg="/assets/image1_new.png"
+          productImg={`http://localhost:3001/uploads/products/${product.product_img}`}
           styles="col-span-3 w-full h-full md:col-start-2 md:row-span-3"
         />
         <ProductImg
@@ -35,26 +58,25 @@ const Product = () => {
       <article className="md:w-6/12">
         <article className="flex flex-col gap-2 text-[clamp(14px,2vw,16px)] py-4 md:pt-0">
           <h1 className="text-[clamp(24px,3vw,40px)] pr-25 md:p-0">
-            One life graphic t-shirt
+          ${product.name_product}
           </h1>
           <ul className="flex">
-            <Rating rating={4.5} totalStars={5} />
+            <Rating rating={product.rating} totalStars={5} />
             <li>
               <p className="ml-2 ">
-                4.5<span className="opacity-60">/5</span>
+              {product.rating}<span className="opacity-60">/5</span>
               </p>
             </li>
           </ul>
           <div className="flex gap-2">
-            <p className="font-bold text-lg">$260</p>
-            <p className="text-lg line-through opacity-60">$300</p>
+            <p className="font-bold text-lg">{product.price_discount}</p>
+            <p className="text-lg line-through opacity-60">{product.price}</p>
             <p className="text-xs bg-red-100 text-red-500 px-2 py-1 rounded-full">
-              -40%
+              -{product.discount}%
             </p>
           </div>
           <p className="opacity-60">
-            This graphic t-shirt which is perfect for any occasion. Crafted from
-            a soft and breathable fabric, it offers superior comfort and style.
+          {product.description}
           </p>
         </article>
 
@@ -95,6 +117,8 @@ const Product = () => {
         </article>
       </article>
     </section>
+  ) : (
+    <p>Carregando...</p>
   );
 };
 
