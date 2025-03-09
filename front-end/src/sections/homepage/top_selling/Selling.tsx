@@ -12,7 +12,7 @@ const Selling = () => {
         <ProductCard productImg="./assets/image1_top.png" title="Vertical Striped Shirt" rating={5.0} price="$ 232" priceWithDiscount="$ 212" discount="-20%"/>
         <ProductCard productImg="./assets/image2_top.png" title="Courage Graphic T-shirt" rating={4.0} price="$ 145"/>
         <ProductCard productImg="./assets/image3_top.png" title="Loose Fit Bermuda Shorts" rating={3.0} price="$ 80"/>
-        <ProductCard productImg="./assets/image4_top.png" title="Faded Skinny Jeans" rating={4.5} price="$ 210"/>
+        <ProductCard productImg="./assets/image4_top.png" title="Faded Skinny Jeans" rating={4.5} price="$ 211"/>
       </article>
 
       <Button content="View All" bgColor="bg-white" contentColor="text-black" href="#" border="border-1 border-[rgba(0,0,0,0.1)]"/>
