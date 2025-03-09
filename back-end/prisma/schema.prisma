@@ -18,12 +18,12 @@ model Product {
   category Category @relation(fields: [category_id], references: [id])
   name_product String
   description String
-  rating Decimal
+  rating Float
   price String
   amount Int
-  color String
-  size String
-  product_img String
+  color String[]
+  size String[]
+  images   Image[]
   tag String?
   discount Int?
   price_discount String?
@@ -46,8 +46,17 @@ model Review {
   id String @id @default(uuid())
   name_person String
   comment String
-  rating Decimal
+  rating Float
   created_at DateTime? @default(now())
 
   @@map("reviews")
+}
+
+model Image {
+  id        String  @id @default(uuid())
+  url       String
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@map("images")
 }
