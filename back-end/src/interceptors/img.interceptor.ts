@@ -1,9 +1,9 @@
 import { diskStorage } from 'multer';
 import { extname } from 'path';
-import { FileInterceptor } from '@nestjs/platform-express';
+import { FilesInterceptor } from '@nestjs/platform-express';
 
 export const ImgInterceptor = () => 
-  FileInterceptor('product_img', {
+  FilesInterceptor('product_imgs', 5, { // Permite até 5 imagens
     storage: diskStorage({
       destination: './uploads/products',
       filename: (req, file, callback) => {
@@ -13,7 +13,7 @@ export const ImgInterceptor = () =>
       },
     }),
     limits: {
-      fileSize: 5 * 1024 * 1024, // Limite opcional de 5MB
+      fileSize: 5 * 1024 * 1024, // Limite de 5MB por imagem
     },
     fileFilter: (req, file, callback) => {
       if (!file.mimetype.match(/\/(jpg|jpeg|png|webp)$/)) {
