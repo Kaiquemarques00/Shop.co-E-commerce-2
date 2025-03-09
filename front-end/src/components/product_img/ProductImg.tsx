@@ -1,21 +1,18 @@
 interface PropsProductImg {
     productImg: string;
     styles: string;
-    selected?: boolean;
+    onClick?: any;
+    selected?: string;
 }
 
 const ProductImg = (props: PropsProductImg) => {
-    return props.selected ? (
+
+    return (
         <img
             src={props.productImg}
                 alt="T-shirt"
-                className={props.styles ? `rounded-[20px] border-1 border-black ${props.styles}` : "rounded-[20px] border-1 border-black"}
-        />
-    ) : (
-        <img
-            src={props.productImg}
-                alt="T-shirt"
-                className={props.styles ? `rounded-[20px] ${props.styles}` : "rounded-[20px]"}
+                className={props.styles ? `rounded-[20px] ${props.styles} ${props.selected}` : "rounded-[20px]"}
+                onClick={() => props.onClick(props.productImg)}
         />
     )
 }
