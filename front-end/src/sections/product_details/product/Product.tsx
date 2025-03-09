@@ -9,6 +9,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Discount from "@/components/discount/Discount";
 import Price from "@/components/price/Price";
+import Modal from "@/components/modal/Modal";
 
 const Product = () => {
   const router = useRouter();
@@ -17,13 +18,20 @@ const Product = () => {
 
   const [product, setProduct] = useState<any>(null);
 
-  const [src, setSrc] = useState<string>('');
-  const [selected, setSelected] = useState<string>('');
+  const [src, setSrc] = useState('');
+  const [selected, setSelected] = useState('');
 
-  const handleClick = (srcValue: string) => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>();
+
+  const handleClickImg = (srcValue: string) => {
     setSrc(srcValue);
     console.log(`O src clicado é: ${srcValue}`);
     setSelected(srcValue)
+  };
+
+  const handleClickAddCart = () => {
+    setIsModalOpen(true);
+    setTimeout(() => setIsModalOpen(false), 3000);
   };
 
   console.log(product);
@@ -52,24 +60,24 @@ const Product = () => {
         <ProductImg
           productImg={src ? src : `http://localhost:3001/uploads${product.images[0].url}`}
           styles={`col-span-3 w-full h-full md:col-start-2 md:row-span-3`}
-          onClick={handleClick}
+          onClick={handleClickImg}
         />
         <ProductImg
           productImg={`http://localhost:3001/uploads${product.images[0].url}`}
           styles={`md:col-start-1 md:row-start-1 md:h-12/12`}
-          onClick={handleClick}
+          onClick={handleClickImg}
           selected={selected === `http://localhost:3001/uploads${product.images[0].url}` ? "border-1 border-black" : ""}
         />
         <ProductImg
           productImg={`http://localhost:3001/uploads${product.images[1].url}`}
           styles={`md:col-start-1 md:h-12/12 ${selected}`}
-          onClick={handleClick}
+          onClick={handleClickImg}
           selected={selected === `http://localhost:3001/uploads${product.images[1].url}` ? "border-1 border-black" : ""}
         />
         <ProductImg
           productImg={`http://localhost:3001/uploads${product.images[2].url}`}
           styles={`md:col-start-1 md:h-12/12 ${selected}`}
-          onClick={handleClick}
+          onClick={handleClickImg}
           selected={selected === `http://localhost:3001/uploads${product.images[2].url}` ? "border-1 border-black" : ""}
         />
       </article>
@@ -126,11 +134,19 @@ const Product = () => {
           </div>
           <Button
             content="Add to Cart"
-            href="/"
             bgColor="bg-black"
             contentColor="text-white h-[40px] md:h-[50px]"
             containerStyle="lg:mx-0"
+            onClick={handleClickAddCart}
           />
+          {isModalOpen && (
+            <Modal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            title="Produto Adicionado ao Carrinho"
+            message="Seu produto foi adicionado com sucesso!"
+          />
+          )}
         </article>
       </article>
     </section>
