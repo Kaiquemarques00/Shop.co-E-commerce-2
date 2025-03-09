@@ -7,64 +7,71 @@ export class ProductService {
 
     constructor(private readonly prisma: PrismaService) {}
 
-    async create(data: CreateProductDTO) {
-
-        return await this.prisma.product.create({
-            data
+    async create(data: CreateProductDTO, imagePaths: string[]) {
+        const product = await this.prisma.product.create({
+            data: {
+                ...data,
+                amount: Number(data.amount),
+                rating: Number(data.rating),
+                discount: data.discount ? Number(data.discount) : null,
+            }
         });
+
+        if (imagePaths.length > 0) {
+            await this.prisma.image.createMany({
+                data: imagePaths.map((url) => ({
+                    url: `/products/${url}`, // Caminho da imagem
+                    productId: product.id,
+                })),
+            });
+        }
+
+        return product;
     }
 
     async list() {
-        return await this.prisma.product.findMany();
+        return await this.prisma.product.findMany({
+            include: { images: true }, // Inclui imagens nos resultados
+        });
     }
 
     async show(id: string) {
-
-        const products = await this.prisma.product.findUnique({
-            where: {
-                id
-            }
+        const product = await this.prisma.product.findUnique({
+            where: { id },
+            include: { images: true }, // Inclui imagens no produto
         });
 
-        if (!products) return new NotFoundException(`O produto ${id} não existe.`);
+        if (!product) throw new NotFoundException(`O produto ${id} não existe.`);
 
-        return products;
+        return product;
     }
 
     async showByCategory(category_id: string) {
-
         const products = await this.prisma.product.findMany({
-            where: {
-                category_id
-            }
+            where: { category_id },
+            include: { images: true },
         });
 
-        if (!products || products.length === 0) {
-            throw new NotFoundException(`Não existe produtos na categoria ${category_id}.`);
+        if (!products.length) {
+            throw new NotFoundException(`Não existem produtos na categoria ${category_id}.`);
         }
 
         return products;
     }
 
     async showByTag(tag: string) {
-
         const products = await this.prisma.product.findMany({
-            where: {
-                tag: tag
-            },
+            where: { tag },
+            include: { images: true },
             orderBy: {
                 created_at: 'asc'
             }
         });
 
-        if (!products || products.length === 0) return new NotFoundException(`Não existe produtos na tag ${tag}.`);
+        if (!products.length) {
+            throw new NotFoundException(`Não existem produtos com a tag ${tag}.`);
+        }
 
         return products;
-    }
-
-    async exists(id: string) {
-        if (!(await this.show(id))) {
-            throw new NotFoundException(`O produto ${id} não existe.`);
-        }
     }
 }
