@@ -4,6 +4,7 @@ import {
   Get, 
   Param, 
   Post, 
+  Query, 
   UploadedFiles, 
   UseInterceptors 
 } from "@nestjs/common";
@@ -36,8 +37,11 @@ export class ProductController {
   }
 
   @Get("category/:category_id")
-  async showByCategory(@Param("category_id") category_id: string) {
-      return this.productService.showByCategory(category_id);
+  async showByCategory(
+        @Param("category_id") category_id: string,
+        @Query("page") page: number = 1
+    ) {
+      return this.productService.showByCategory(category_id, page);
   }
 
   @Get("tag/:tag")
