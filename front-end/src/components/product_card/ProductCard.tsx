@@ -18,7 +18,7 @@ const ProductCard = (props: PropsProductCard) => {
 
 
     return (
-        <article className="flex flex-col min-w-[198px] ml-4">
+        <article className="flex flex-col min-w-[198px] ml-4 lg:m-0">
             <Link href={props.href}>
               <ProductImg productImg={props.productImg} styles="min-w-full h-[200px]"/>
             </Link>
