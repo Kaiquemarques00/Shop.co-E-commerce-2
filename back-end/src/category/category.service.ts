@@ -18,22 +18,22 @@ export class CategoryService {
         return await this.prisma.category.findMany();
     }
 
-    async show(id: string) {
+    async show(category: string) {
 
-        const categories = await this.prisma.category.findUnique({
+        const categories = await this.prisma.category.findMany({
             where: {
-                id
+                name_category: category
             }
         });
 
-        if (!categories) return new NotFoundException(`A categoria ${id} não existe.`);
+        if (!categories) return new NotFoundException(`A categoria ${category} não existe.`);
 
         return categories;
     }
 
-    async exists(id: string) {
-        if (!(await this.show(id))) {
-            throw new NotFoundException(`A categoria ${id} não existe.`);
+    async exists(category: string) {
+        if (!(await this.show(category))) {
+            throw new NotFoundException(`A categoria ${category} não existe.`);
         }
     }
 }
