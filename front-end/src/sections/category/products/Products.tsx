@@ -3,6 +3,7 @@ import ProductCard from "@/components/product_card/ProductCard";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import FiltersMobile from "../filters_mobile/FiltersMobile";
 
 const Products = () => {
   const router = useRouter();
@@ -11,6 +12,7 @@ const Products = () => {
   const [category, setCategory] = useState<any>([]);
   const [products, setProducts] = useState<any>([]);
   const [currentPage, setCurrentPage] = useState<number>(1); // Página atual
+  const [isModalOpen, setIsModalOpen] = useState<boolean>();
 
   const productsPerPage = 9; // Número fixo de produtos por página
 
@@ -47,24 +49,40 @@ const Products = () => {
   };
 
   return (
-    <section className="w-full">
-      <article className="flex justify-between mb-5 items-end">
-        <h2 className="text-[clamp(24px,3vw,32px)]">Casual</h2>
-        <div className="flex gap-2 items-center">
-          <p className="opacity-60">
-            Showing {(currentPage - 1) * productsPerPage + 1}-{(currentPage * productsPerPage)} of {products.length} Products
-          </p>
-          <p className="opacity-60">Sort By:</p>
-          <p className="font-bold">Most Popular</p>
+    <section className="w-full p-4">
+      <article className="flex justify-between items-center mb-5 text-[clamp(14px,2vw,16px)]">
+        <div className="flex gap-2 items-end">
+          <h2 className="text-[24px] font-bold">Casual</h2>
+          <div className="flex gap-2 items-center">
+            <p className="opacity-60 h-[25px]">
+              Showing {(currentPage - 1) * productsPerPage + 1}-
+              {currentPage * productsPerPage} of {products.length} Products
+            </p>
+            <p className="hidden md:block opacity-60">Sort By:</p>
+            <p className="hidden md:block font-bold">Most Popular</p>
+            <img
+              src="/assets/Down_arrow.svg"
+              alt="Arrow Down icon"
+              className="hidden md:block w-[16px] h-[16px]"
+            />
+          </div>
+        </div>
+        <div className="w-[32px] h-[32px] rounded-full flex justify-center items-center bg-[#F1F1F1]">
           <img
-            src="/assets/Down_arrow.svg"
-            alt="Arrow Down icon"
+            src="/assets/Filter.svg"
+            alt="Filter icon"
             className="w-[16px] h-[16px]"
+            onClick={() => setIsModalOpen(true)}
           />
         </div>
       </article>
 
-      <article className="grid grid-cols-3 gap-5 gap-y-10 pb-10 border-b border-black/10">
+      {isModalOpen && (
+            <FiltersMobile isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}/>
+          )}
+
+      <article className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-y-10 pb-10 border-b border-black/10">
         {products.map((product: any) => (
           <ProductCard
             key={product.id}
@@ -75,42 +93,50 @@ const Products = () => {
             price={product.price}
             discount={product.discount}
             priceWithDiscount={product.price_discount}
+            style="w-full !m-0"
+            styleImg="!h-[175px]"
           />
         ))}
       </article>
 
-      <article className="flex justify-between py-5 items-center">
+      <article className="flex w-full justify-between gap-2 mt-5 mb-10 items-center h-[36px] md:h-[40px] text-[clamp(12px,3vw,14px)]">
         {/* Botão Previous */}
         <div
           onClick={() => handlePageChange(currentPage - 1)}
-          className="flex gap-3 p-2 border border-black/10 rounded-lg cursor-pointer"
+          className="flex gap-1 p-3 border border-black/10 rounded-lg cursor-pointer h-[36px] items-center"
         >
-          <img src="/assets/Arrow_left.svg" alt="Arrow left" />
+          <img
+            src="/assets/Arrow_left.svg"
+            alt="Arrow left"
+            className="h-[16px] md:h-[20px] w-[16px] md:w-[20px]"
+          />
           <p>Previous</p>
         </div>
 
         {/* Navegação das Páginas */}
-        <div>
-          <ul className="flex gap-2">
-            {/* Exibe as páginas até o número total de páginas */}
-            {Array.from({ length: 10 }, (_, i) => i + 1).map((page) => (
-              <PageCard
-                key={page}
-                content={page.toString()}
-                onClick={() => handlePageChange(page)}
-                isActive={page === currentPage}
-              />
-            ))}
-          </ul>
-        </div>
+        <ul className="flex gap-1 h-full">
+          {/* Exibe as páginas até o número total de páginas */}
+          {Array.from({ length: 5 }, (_, i) => i + 1).map((page) => (
+            <PageCard
+              key={page}
+              content={page.toString()}
+              onClick={() => handlePageChange(page)}
+              isActive={page === currentPage}
+            />
+          ))}
+        </ul>
 
         {/* Botão Next */}
         <div
           onClick={() => handlePageChange(currentPage + 1)}
-          className="flex gap-3 p-2 border border-black/10 rounded-lg cursor-pointer"
+          className="flex gap-1 p-3 border border-black/10 rounded-lg cursor-pointer h-[36px] items-center"
         >
           <p>Next</p>
-          <img src="/assets/Arrow_right.svg" alt="Arrow right" />
+          <img
+            src="/assets/Arrow_right.svg"
+            alt="Arrow right"
+            className="h-[16px] md:h-[20px] w-[16px] md:w-[20px]"
+          />
         </div>
       </article>
     </section>

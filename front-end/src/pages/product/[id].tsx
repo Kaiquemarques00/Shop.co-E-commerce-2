@@ -12,7 +12,7 @@ const productDetails = () => {
         <>
             <Header />
             <nav>
-                <Link href="/homepage">
+                <Link href="/home">
                     Home
                 </Link>
                 {`>`}

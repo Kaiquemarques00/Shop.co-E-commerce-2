@@ -10,7 +10,7 @@ const Filters = () => {
   const [price, setPrice] = useState([50, 200]);
 
   return (
-    <section className="flex flex-col lg:w-3/12 lg:p-5 border border-black/20 rounded-2xl justify-between">
+    <section className="hidden md:flex flex-col lg:w-3/12 lg:p-5 border border-black/20 rounded-2xl justify-between">
       <article className="border-b border-black/10 py-5">
         <div className="flex justify-between">
           <h1>Filters</h1>

@@ -11,13 +11,15 @@ interface PropsProductCard {
   discount?: number;
   priceWithDiscount?: string;
   href: string;
+  style?: string;
+  styleImg?: string;
 }
 
 const ProductCard = (props: PropsProductCard) => {
   return (
-    <article className="flex flex-col min-w-[198px] lg:py-10 ml-4 lg:m-0 transition-transform transform hover:scale-105 rounded-lg overflow-hidden">
+    <article className={`flex flex-col lg:py-10 ml-4 lg:m-0 transition-transform transform hover:scale-105 rounded-lg overflow-hidden ${props.style ? props.style : "min-w-[198px]"}`}>
       <Link href={props.href}>
-        <ProductImg productImg={props.productImg} styles="min-w-full h-[200px]" />
+        <ProductImg productImg={props.productImg} styles={`min-w-full h-[200px] ${props.styleImg}`} />
       </Link>
       <h2 className="text-[clamp(16px,2vw,20px)]">
         {props.title}
