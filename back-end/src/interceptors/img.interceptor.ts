@@ -2,8 +2,9 @@ import { diskStorage } from 'multer';
 import { extname } from 'path';
 import { FilesInterceptor } from '@nestjs/platform-express';
 
-export const ImgInterceptor = () => 
-  FilesInterceptor('product_imgs', 5, { // Permite até 5 imagens
+export const ImgInterceptor = () =>
+  FilesInterceptor('product_imgs', 5, {
+    // Permite até 5 imagens
     storage: diskStorage({
       destination: './uploads/products',
       filename: (req, file, callback) => {

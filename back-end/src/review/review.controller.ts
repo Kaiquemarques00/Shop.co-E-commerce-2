@@ -1,25 +1,23 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Post } from "@nestjs/common";
-import { ReviewService } from "./review.service";
-import { CreateReviewDTO } from "./dto/create-review.dto";
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { ReviewService } from './review.service';
+import { CreateReviewDTO } from './dto/create-review.dto';
 
-
-@Controller("reviews")
+@Controller('reviews')
 export class ReviewController {
-    
-    constructor(private readonly reviewService: ReviewService) {}
+  constructor(private readonly reviewService: ReviewService) {}
 
-    @Post()
-    async create(@Body() data: CreateReviewDTO) {
-        return this.reviewService.create(data)
-    }
+  @Post()
+  async create(@Body() data: CreateReviewDTO) {
+    return this.reviewService.create(data);
+  }
 
-    @Get()
-    async list() {
-        return this.reviewService.list();
-    }
+  @Get()
+  async list() {
+    return this.reviewService.list();
+  }
 
-    @Get(":id")
-    async show(@Param('id') id: string) {
-        return this.reviewService.show(id);
-    }
+  @Get(':id')
+  async show(@Param('id') id: string) {
+    return this.reviewService.show(id);
+  }
 }
