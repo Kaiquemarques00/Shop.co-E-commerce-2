@@ -18,8 +18,8 @@ export class CategoryController {
         return this.categoryService.list();
     }
 
-    @Get(":id")
-    async show(@Param('id') id: string) {
-        return this.categoryService.show(id);
+    @Get(":category")
+    async show(@Param('category') category: string) {
+        return this.categoryService.show(`${category.charAt(0).toUpperCase()}${category.slice(1).toLowerCase()}`);
     }
 }

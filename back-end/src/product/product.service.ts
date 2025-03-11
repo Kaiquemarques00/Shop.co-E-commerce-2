@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
+import { BadRequestException, Injectable, NotFoundException } from "@nestjs/common";
 import { PrismaService } from "src/prisma/prisma.service";
 import { CreateProductDTO } from "./dto/create-product.dto";
 
@@ -46,10 +46,24 @@ export class ProductService {
         return product;
     }
 
-    async showByCategory(category_id: string) {
+    async showByCategory(category_id: string, page: number) {
+        const limit = 9;
+
+        if (page < 1) {
+            throw new BadRequestException('O número da página deve ser maior que 0.');
+        }
+
+        const skip = (page - 1) * limit;
+        const take = limit;
+
         const products = await this.prisma.product.findMany({
             where: { category_id },
             include: { images: true },
+            skip: skip,
+            take: take,
+            orderBy: {
+                created_at: 'asc'
+            }
         });
 
         if (!products.length) {
