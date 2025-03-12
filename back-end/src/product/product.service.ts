@@ -24,7 +24,7 @@ export class ProductService {
         amount: Number(data.amount),
         rating: Number(data.rating),
         discount: data.discount ? Number(data.discount) : null,
-        url_image: imageUrl
+        url_image: String(imageUrl)
       },
     });
 
