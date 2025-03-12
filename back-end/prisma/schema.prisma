@@ -51,3 +51,10 @@ model Review {
 
   @@map("reviews")
 }
+
+model Log {
+  id String @id @default(uuid())
+  created_at DateTime? @default(now())
+
+  @@map("logs")
+}
