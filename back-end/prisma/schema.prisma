@@ -26,7 +26,7 @@ model Product {
   tag String?
   discount Int?
   price_discount String?
-  image_url String?
+  image_url String
   created_at DateTime? @default(now())
 
   @@map("products")

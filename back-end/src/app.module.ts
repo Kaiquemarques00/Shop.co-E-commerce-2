@@ -13,7 +13,7 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
     ReviewModule,
     CategoryModule,
     ProductModule,
-    CloudinaryModule
+    CloudinaryModule,
   ],
   controllers: [AppController],
   providers: [AppService],

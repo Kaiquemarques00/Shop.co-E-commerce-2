@@ -14,16 +14,18 @@ export class CloudinaryService {
 
   async uploadImage(file: Express.Multer.File): Promise<any> {
     return new Promise((resolve, reject) => {
-      cloudinary.uploader.upload_stream(
-        { resource_type: 'auto' }, // Detecta automaticamente o tipo de arquivo
-        (error, result) => {
-          if (error) {
-            reject(error);
-          } else {
-            resolve(result);
-          }
-        }
-      ).end(file.buffer); // Envia o buffer diretamente
+      cloudinary.uploader
+        .upload_stream(
+          { resource_type: 'auto' }, // Detecta automaticamente o tipo de arquivo
+          (error, result) => {
+            if (error) {
+              reject(error);
+            } else {
+              resolve(result);
+            }
+          },
+        )
+        .end(file.buffer); // Envia o buffer diretamente
     });
   }
 }

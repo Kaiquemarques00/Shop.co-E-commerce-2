@@ -9,10 +9,12 @@ import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
 
 @Injectable()
 export class ProductService {
-  constructor(private readonly prisma: PrismaService, private readonly cloudinary: CloudinaryService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly cloudinary: CloudinaryService,
+  ) {}
 
   async create(data: CreateProductDTO, file: Express.Multer.File) {
-
     const upload = await this.cloudinary.uploadImage(file);
     const imageUrl = upload.url;
 
@@ -22,11 +24,9 @@ export class ProductService {
         amount: Number(data.amount),
         rating: Number(data.rating),
         discount: data.discount ? Number(data.discount) : null,
-        image_url: imageUrl
+        image_url: imageUrl,
       },
     });
-
-    
 
     return product;
   }

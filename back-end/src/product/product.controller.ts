@@ -20,8 +20,8 @@ export class ProductController {
   @Post()
   @UseInterceptors(
     FileInterceptor('product_img', {
-      storage: memoryStorage(),  // Aqui definimos que o arquivo será armazenado em memória
-    })
+      storage: memoryStorage(), // Aqui definimos que o arquivo será armazenado em memória
+    }),
   )
   async create(
     @Body() data: CreateProductDTO,

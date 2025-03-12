@@ -6,9 +6,13 @@ import { CloudinaryModule } from 'src/cloudinary/cloudinary.module';
 import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
-  imports: [PrismaModule, CloudinaryModule, MulterModule.register({
-    dest: './uploads', // pasta temporária para armazenar os arquivos
-  }),],
+  imports: [
+    PrismaModule,
+    CloudinaryModule,
+    MulterModule.register({
+      dest: './uploads', // pasta temporária para armazenar os arquivos
+    }),
+  ],
   controllers: [ProductController],
   providers: [ProductService],
   exports: [],
