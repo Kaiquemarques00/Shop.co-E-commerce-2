@@ -12,8 +12,6 @@ export class CreateProductDTO {
   @IsString()
   name_product: string;
 
-  url_image: string;
-
   @IsString()
   description: string;
 
