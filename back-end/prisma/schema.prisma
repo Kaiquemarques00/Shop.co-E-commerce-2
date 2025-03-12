@@ -18,7 +18,7 @@ model Product {
   category Category @relation(fields: [category_id], references: [id])
   name_product String
   description String
-  image_url String?
+  url_image String?
   rating Float
   price String
   amount Int
