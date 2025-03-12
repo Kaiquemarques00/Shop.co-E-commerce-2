@@ -3,12 +3,15 @@ CREATE TABLE "products" (
     "id" TEXT NOT NULL,
     "name_product" TEXT NOT NULL,
     "description" TEXT NOT NULL,
-    "rating" DECIMAL(65,30) NOT NULL,
+    "url_image" TEXT,
+    "rating" DOUBLE PRECISION NOT NULL,
     "price" TEXT NOT NULL,
     "amount" INTEGER NOT NULL,
-    "color" TEXT NOT NULL,
-    "size" TEXT NOT NULL,
-    "product_img" TEXT NOT NULL,
+    "color" TEXT[],
+    "size" TEXT[],
+    "tag" TEXT,
+    "discount" INTEGER,
+    "price_discount" TEXT,
     "created_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "category_id" TEXT NOT NULL,
 
@@ -29,10 +32,18 @@ CREATE TABLE "reviews" (
     "id" TEXT NOT NULL,
     "name_person" TEXT NOT NULL,
     "comment" TEXT NOT NULL,
-    "rating" DECIMAL(65,30) NOT NULL,
+    "rating" DOUBLE PRECISION NOT NULL,
     "created_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "reviews_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "logs" (
+    "id" TEXT NOT NULL,
+    "created_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "logs_pkey" PRIMARY KEY ("id")
 );
 
 -- AddForeignKey
