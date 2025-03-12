@@ -18,6 +18,7 @@ model Product {
   category Category @relation(fields: [category_id], references: [id])
   name_product String
   description String
+  image_url String?
   rating Float
   price String
   amount Int
@@ -26,7 +27,6 @@ model Product {
   tag String?
   discount Int?
   price_discount String?
-  image_url String
   created_at DateTime? @default(now())
 
   @@map("products")
