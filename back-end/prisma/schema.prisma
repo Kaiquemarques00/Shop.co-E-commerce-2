@@ -23,10 +23,10 @@ model Product {
   amount Int
   color String[]
   size String[]
-  images   Image[]
   tag String?
   discount Int?
   price_discount String?
+  image_url String?
   created_at DateTime? @default(now())
 
   @@map("products")
@@ -50,13 +50,4 @@ model Review {
   created_at DateTime? @default(now())
 
   @@map("reviews")
-}
-
-model Image {
-  id        String  @id @default(uuid())
-  url       String
-  productId String
-  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
-
-  @@map("images")
 }

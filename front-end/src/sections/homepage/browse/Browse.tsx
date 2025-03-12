@@ -10,7 +10,7 @@ const Browse = () => {
   console.log(categories)
 
   useEffect(() => {
-    axios.get('http://localhost:3001/categories')
+    axios.get('https://shop-co-e-commerce-2.onrender.com/categories')
       .then(response => setCategories(response.data))
       .catch(error => console.error(error));
   }, []);

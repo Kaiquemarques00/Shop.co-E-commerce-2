@@ -21,14 +21,14 @@ const Products = () => {
     const fetchData = async () => {
       try {
         const responseCategory = await axios.get(
-          `http://localhost:3001/categories/${category_name}`
+          `https://shop-co-e-commerce-2.onrender.com/categories/${category_name}`
         );
 
         setCategory(responseCategory.data);
 
         // Obter os produtos com base na página atual
         const responseProduct = await axios.get(
-          `http://localhost:3001/products/category/${responseCategory.data[0].id}?page=${currentPage}`
+          `https://shop-co-e-commerce-2.onrender.com/products/category/${responseCategory.data[0].id}?page=${currentPage}`
         );
 
         setProducts(responseProduct.data); // Definindo os produtos na página atual

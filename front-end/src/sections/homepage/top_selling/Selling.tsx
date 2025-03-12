@@ -10,7 +10,7 @@ const Selling = () => {
   console.log(products)
 
   useEffect(() => {
-    axios.get('http://localhost:3001/products/tag/top-selling')
+    axios.get('https://shop-co-e-commerce-2.onrender.com/products/tag/top-selling')
       .then(response => setProducts(response.data))
       .catch(error => console.error(error));
   }, []);

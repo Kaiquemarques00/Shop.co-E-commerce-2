@@ -3,6 +3,7 @@ interface PropsProductImg {
     styles: string;
     onClick?: (src: any) => void;
     selected?: string;
+    selectedLoad?: boolean;
 }
 
 const ProductImg = (props: PropsProductImg) => {
@@ -13,7 +14,14 @@ const ProductImg = (props: PropsProductImg) => {
         }
       };
 
-    return (
+    return props.selectedLoad ? (
+        <img
+            src={props.productImg}
+                alt="T-shirt"
+                className={props.styles ? `rounded-[20px] border-1 border-black ${props.styles} ${props.selected}` : "rounded-[20px] border-1 border-black"}
+                onClick={handleClick}
+        />
+    ) : (
         <img
             src={props.productImg}
                 alt="T-shirt"

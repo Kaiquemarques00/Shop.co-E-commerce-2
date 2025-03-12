@@ -11,7 +11,7 @@ const Arrivals = () => {
   console.log(products)
 
   useEffect(() => {
-    axios.get('http://localhost:3001/products/tag/new-arrivals')
+    axios.get('https://shop-co-e-commerce-2.onrender.com/products/tag/new-arrivals')
       .then(response => setProducts(response.data))
       .catch(error => console.error(error));
   }, []);

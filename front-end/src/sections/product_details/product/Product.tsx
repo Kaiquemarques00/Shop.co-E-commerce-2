@@ -20,11 +20,12 @@ const Product = () => {
 
   const [src, setSrc] = useState('');
   const [selected, setSelected] = useState('');
-  const [colors, setColors] = useState([]);
+  const [selectedLoad, setSelectedLoad] = useState<boolean>(true);
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>();
 
   const handleClickImg = (srcValue: string) => {
+    setSelectedLoad(false);
     setSrc(srcValue);
     console.log(`O src clicado é: ${srcValue}`);
     setSelected(srcValue)
@@ -36,18 +37,16 @@ const Product = () => {
   };
 
   console.log(product);
-  console.log(colors);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/products/${id}`
+          `https://shop-co-e-commerce-2.onrender.com/products/${id}`
         );
 
         setProduct(response.data);
-        setColors(response.data.color);
-        setSelected(`http://localhost:3001/uploads${response.data.images[0].url}`)
+        setSelected(`https://shop-co-e-commerce-2.onrender.com/uploads${response.data.images[0].url}`)
       } catch (error) {
         console.log(error);
       }
@@ -63,23 +62,23 @@ const Product = () => {
         <ProductImg
           productImg={src ? src : `http://localhost:3001/uploads${product.images[0].url}`}
           styles={`col-span-3 w-full h-full md:col-start-2 md:row-span-3`}
-          onClick={handleClickImg}
         />
         <ProductImg
           productImg={`http://localhost:3001/uploads${product.images[0].url}`}
-          styles={`md:col-start-1 md:row-start-1 md:h-12/12 h-[120px] w-[115px] lg:w-full ${selected}`}
+          styles={`md:col-start-1 md:row-start-1 md:h-12/12 h-[120px] w-[115px] lg:w-full`}
           onClick={handleClickImg}
           selected={selected === `http://localhost:3001/uploads${product.images[0].url}` ? "border-1 border-black" : ""}
+          selectedLoad={selectedLoad}
         />
         <ProductImg
           productImg={`http://localhost:3001/uploads${product.images[1].url}`}
-          styles={`md:col-start-1 md:h-12/12 h-[120px] w-[115px] lg:w-full ${selected}`}
+          styles={`md:col-start-1 md:h-12/12 h-[120px] w-[115px] lg:w-full`}
           onClick={handleClickImg}
           selected={selected === `http://localhost:3001/uploads${product.images[1].url}` ? "border-1 border-black" : ""}
         />
         <ProductImg
           productImg={`http://localhost:3001/uploads${product.images[2].url}`}
-          styles={`md:col-start-1 md:h-12/12 h-[120px] w-[115px] lg:w-full ${selected}`}
+          styles={`md:col-start-1 md:h-12/12 h-[120px] w-[115px] lg:w-full`}
           onClick={handleClickImg}
           selected={selected === `http://localhost:3001/uploads${product.images[2].url}` ? "border-1 border-black" : ""}
         />
@@ -111,9 +110,9 @@ const Product = () => {
         <article className="py-4 border-y border-[rgba(0,0,0,0.1)] text-[clamp(14px,2vw,16px)]">
           <p className="opacity-60 mb-3">Select Colors</p>
           <ul className="flex gap-2">
-            <Color selected color={`bg-[${colors[0]}]`} />
-            <Color color={`bg-[${colors[1]}]`} />
-            <Color color={`bg-[${colors[2]}]`} />
+            <Color selected color={`bg-[${product.color[0]}]`} />
+            <Color color={`bg-[${product.color[1]}]`} />
+            <Color color={`bg-[${product.color[2]}]`} />
           </ul>
         </article>
 

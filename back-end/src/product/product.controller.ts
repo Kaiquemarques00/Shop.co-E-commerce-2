@@ -5,25 +5,34 @@ import {
   Param,
   Post,
   Query,
-  UploadedFiles,
+  UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { CreateProductDTO } from './dto/create-product.dto';
-import { ImgInterceptor } from 'src/interceptors/img.interceptor';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { memoryStorage } from 'multer';
 
 @Controller('products')
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
   @Post()
-  @UseInterceptors(ImgInterceptor()) // Permite upload de múltiplas imagens
+  @UseInterceptors(
+    FileInterceptor('product_img', {
+      storage: memoryStorage(),  // Aqui definimos que o arquivo será armazenado em memória
+    })
+  )
   async create(
     @Body() data: CreateProductDTO,
-    @UploadedFiles() files: Express.Multer.File[],
+    @UploadedFile() file: Express.Multer.File,
   ) {
-    const imagePaths = files.map((file) => file.filename); // Captura os nomes das imagens
-    return this.productService.create(data, imagePaths);
+    try {
+      const result = await this.productService.create(data, file);
+      return result;
+    } catch (error) {
+      throw error;
+    }
   }
 
   @Get()

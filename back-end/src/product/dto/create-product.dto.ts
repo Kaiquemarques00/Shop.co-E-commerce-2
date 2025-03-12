@@ -48,6 +48,4 @@ export class CreateProductDTO {
   @IsOptional()
   @IsNumber()
   discount?: number;
-
-  product_imgs?: string[]; // Agora aceita múltiplas imagens
 }
