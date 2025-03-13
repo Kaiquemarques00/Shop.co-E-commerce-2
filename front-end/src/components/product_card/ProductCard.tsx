@@ -21,7 +21,7 @@ const ProductCard = (props: PropsProductCard) => {
       <Link href={props.href}>
         <ProductImg productImg={props.productImg} styles={`min-w-full h-[200px] ${props.styleImg}`} />
       </Link>
-      <h2 className="text-[clamp(16px,2vw,20px)]">
+      <h2 className="text-[clamp(16px,2vw,20px)] font-bold pt-4">
         {props.title}
       </h2>
       <ul className="flex my-1">
@@ -33,13 +33,13 @@ const ProductCard = (props: PropsProductCard) => {
         </li>
       </ul>
       {props.discount ? (
-        <div className="flex gap-2">
-          <p className="font-bold text-lg">{props.priceWithDiscount}</p>
-          <p className="text-lg line-through opacity-60">{props.price}</p>
+        <div className="flex gap-2 items-center">
+          <p className="font-bold text-lg text-[clamp(20px,2vw,24px)]">{props.priceWithDiscount}</p>
+          <p className="text-lg line-through opacity-60 text-[clamp(20px,2vw,24px)]">{props.price}</p>
           <Discount discount={props.discount} />
         </div>
       ) : (
-        <p className="font-bold text-lg">{props.price}</p>
+        <p className="font-bold text-lg text-[clamp(20px,2vw,24px)]">{props.price}</p>
       )}
     </article>
   );

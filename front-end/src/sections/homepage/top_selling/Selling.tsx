@@ -21,9 +21,9 @@ const Selling = () => {
         Top Selling
       </h1>
 
-      <article className="flex w-full justify-around overflow-hidden mb-5 relative">
+      <article className="flex w-full justify-around overflow-hidden mb-5 relative md:px-25">
       {products.map((product: any) => (
-          <ProductCard key={product.id} href={`/product/${product.id}`} productImg={product.url_image} title={product.name_product} rating={product.rating} price={product.price} discount={product.discount} priceWithDiscount={product.price_discount}/>
+          <ProductCard key={product.id} href={`/product/${product.id}`} styleImg='md:w-[295px] md:h-[298px]' productImg={product.url_image} title={product.name_product} rating={product.rating} price={product.price} discount={product.discount} priceWithDiscount={product.price_discount}/>
         ))}
       </article>
 
