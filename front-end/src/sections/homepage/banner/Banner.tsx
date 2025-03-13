@@ -29,7 +29,7 @@ const Banner = () => {
         <figure className="figure-banner relative h-[448px] w-full lg:min-h-[663px]">
           <Image
             className="background-img object-cover object-[89%] w-full h-full"
-            src="./assets/2_people.png"
+            src="/assets/2_people.png"
             alt="2 models"
           />
         </figure>
