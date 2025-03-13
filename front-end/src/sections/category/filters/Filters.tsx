@@ -3,6 +3,7 @@ import Color from "@/components/color/Color";
 import Filter from "@/components/filter/Filter";
 import Size from "@/components/size/Size";
 import Slider from "@/components/slider/Slider";
+import Image from "next/image";
 
 import { useState } from "react";
 
@@ -14,7 +15,7 @@ const Filters = () => {
       <article className="border-b border-black/10">
         <div className="flex justify-between border-b border-black/10">
           <h2 className="text-[20px] font-bold pb-2">Filters</h2>
-          <img src="/assets/Filter.svg" alt="Filter icon" />
+          <Image src="/assets/Filter.svg" alt="Filter icon" />
         </div>
         <Filter content="T-shirts" style="pt-4"/>
         <Filter content="Shorts" />
@@ -26,7 +27,7 @@ const Filters = () => {
       <article className="border-b border-black/10 py-5">
         <div className="flex justify-between pb-3">
           <h2 className="text-[20px] font-bold pb-2">Price</h2>
-          <img src="/assets/Arrow_top.svg" alt="Arrow top icon" />
+          <Image src="/assets/Arrow_top.svg" alt="Arrow top icon" />
         </div>
         <Slider
           min={0}
@@ -44,7 +45,7 @@ const Filters = () => {
       <article className="border-b border-black/10 py-5">
         <div className="flex justify-between pb-3">
           <h2 className="text-[20px] font-bold pb-2">Colors</h2>
-          <img src="/assets/Arrow_top.svg" alt="Arrow top icon" />
+          <Image src="/assets/Arrow_top.svg" alt="Arrow top icon" />
         </div>
         <ul className="grid grid-cols-5 gap-3 place-items-center">
           <Color color="bg-[#00C12B]" />
@@ -63,7 +64,7 @@ const Filters = () => {
       <article className="border-b border-black/10 py-5">
         <div className="flex justify-between pb-3">
           <h2 className="text-[20px] font-bold pb-2">Size</h2>
-          <img src="/assets/Arrow_top.svg" alt="Arrow top icon" />
+          <Image src="/assets/Arrow_top.svg" alt="Arrow top icon" />
         </div>
         <div className="grid grid-cols-2 gap-3">
           <Size content="XX-Small" />
@@ -81,7 +82,7 @@ const Filters = () => {
       <article className="py-5">
         <div className="flex justify-between pb-3">
           <h2 className="text-[20px] font-bold pb-2">Dress Style</h2>
-          <img src="/assets/Arrow_top.svg" alt="Arrow top icon" />
+          <Image src="/assets/Arrow_top.svg" alt="Arrow top icon" />
         </div>
         <Filter content="Casual" />
         <Filter content="Formal" />

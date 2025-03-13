@@ -1,5 +1,4 @@
-import starFull from "/assets/Full_star.svg";
-import starHalf from "/assets/Half_star.svg";
+import Image from "next/image";
 
 interface PropsRating {
   rating: number;
@@ -27,7 +26,7 @@ const Rating = (props: PropsRating) => {
         {stars.map((star, index) =>
           star ? (
             <li key={index} className={props.style ? "w-[19px] h-[19px] md:w-[25px] md:h-[25px]" : "w-[16px] h-[16px] md:w-[19px] md:h-[19px]"}>
-                <img src={star} alt="Star" className="star h-full" />
+                <Image src={star} alt="Star" className="star h-full" />
             </li>
           ) : null
         )}

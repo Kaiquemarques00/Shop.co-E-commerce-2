@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface PropsProductImg {
   productImg: string;
   styles: string;
@@ -14,7 +16,7 @@ const ProductImg = ({
   const isSelected = selected === productImg;
 
   return (
-    <img
+    <Image
       src={productImg}
       alt="T-shirt"
       className={`rounded-[20px] border-1 ${

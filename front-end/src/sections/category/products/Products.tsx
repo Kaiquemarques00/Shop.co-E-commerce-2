@@ -4,12 +4,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import FiltersMobile from "../filters_mobile/FiltersMobile";
+import Image from "next/image";
 
 const Products = () => {
   const router = useRouter();
   const { category_name } = router.query;
 
-  const [category, setCategory] = useState<any>([]);
   const [products, setProducts] = useState<any>([]);
   const [currentPage, setCurrentPage] = useState<number>(1); // Página atual
   const [isModalOpen, setIsModalOpen] = useState<boolean>();
@@ -24,9 +24,6 @@ const Products = () => {
           `https://shop-co-e-commerce-2-1.onrender.com/categories/${category_name}`
         );
 
-        setCategory(responseCategory.data);
-
-        // Obter os produtos com base na página atual
         const responseProduct = await axios.get(
           `https://shop-co-e-commerce-2-1.onrender.com/products/category/${responseCategory.data[0].id}?page=${currentPage}`
         );
@@ -60,7 +57,7 @@ const Products = () => {
             </p>
             <p className="hidden md:block opacity-60">Sort By:</p>
             <p className="hidden md:block font-bold">Most Popular</p>
-            <img
+            <Image
               src="/assets/Down_arrow.svg"
               alt="Arrow Down icon"
               className="hidden md:block w-[16px] h-[16px]"
@@ -68,7 +65,7 @@ const Products = () => {
           </div>
         </div>
         <div className="md:hidden w-[35px] h-[35px] rounded-full flex justify-center items-center bg-[#F1F1F1]">
-          <img
+          <Image
             src="/assets/Filter.svg"
             alt="Filter icon"
             className="w-[16px] h-[16px]"
@@ -105,7 +102,7 @@ const Products = () => {
           onClick={() => handlePageChange(currentPage - 1)}
           className="flex gap-1 p-3 border border-black/10 rounded-lg cursor-pointer h-[36px] items-center"
         >
-          <img
+          <Image
             src="/assets/Arrow_left.svg"
             alt="Arrow left"
             className="h-[16px] md:h-[20px] w-[16px] md:w-[20px]"
@@ -132,7 +129,7 @@ const Products = () => {
           className="flex gap-1 p-3 border border-black/10 rounded-lg cursor-pointer h-[36px] items-center"
         >
           <p>Next</p>
-          <img
+          <Image
             src="/assets/Arrow_right.svg"
             alt="Arrow right"
             className="h-[16px] md:h-[20px] w-[16px] md:w-[20px]"

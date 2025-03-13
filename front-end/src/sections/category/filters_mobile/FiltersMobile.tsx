@@ -3,6 +3,7 @@ import Color from "@/components/color/Color";
 import Filter from "@/components/filter/Filter";
 import Size from "@/components/size/Size";
 import Slider from "@/components/slider/Slider";
+import Image from "next/image";
 
 import { useState } from "react";
 
@@ -20,7 +21,7 @@ const FiltersMobile = (props: PropsFiltersMobile) => {
         <article className="border-b border-black/10 pb-4">
           <div className="flex justify-between border-b border-black/10 pb-4">
             <h1 className="">Filters</h1>
-            <img src="/assets/Close_modal.svg" alt="Close icon" onClick={props.onClose}/>
+            <Image src="/assets/Close_modal.svg" alt="Close icon" onClick={props.onClose}/>
           </div>
           <Filter content="T-shirts" />
           <Filter content="Shorts" />
@@ -32,7 +33,7 @@ const FiltersMobile = (props: PropsFiltersMobile) => {
         <article className="border-b border-black/10 py-4">
           <div className="flex justify-between pb-4">
             <h1>Price</h1>
-            <img src="/assets/Arrow_top.svg" alt="Arrow top icon" />
+            <Image src="/assets/Arrow_top.svg" alt="Arrow top icon" />
           </div>
           <Slider
             min={0}
@@ -50,7 +51,7 @@ const FiltersMobile = (props: PropsFiltersMobile) => {
         <article className="border-b border-black/10 py-4">
           <div className="flex justify-between pb-4">
             <h1>Colors</h1>
-            <img src="/assets/Arrow_top.svg" alt="Arrow top icon" />
+            <Image src="/assets/Arrow_top.svg" alt="Arrow top icon" />
           </div>
           <ul className="grid grid-cols-7 gap-2">
             <Color color="bg-[#00C12B]" />
@@ -69,7 +70,7 @@ const FiltersMobile = (props: PropsFiltersMobile) => {
         <article className="border-b border-black/10 py-5">
           <div className="flex justify-between pb-4">
             <h1>Size</h1>
-            <img src="/assets/Arrow_top.svg" alt="Arrow top icon" />
+            <Image src="/assets/Arrow_top.svg" alt="Arrow top icon" />
           </div>
           <div className="grid grid-cols-2 gap-3">
             <Size content="XX-Small" />
@@ -87,7 +88,7 @@ const FiltersMobile = (props: PropsFiltersMobile) => {
         <article className="py-5">
           <div className="flex justify-between pb-4">
             <h1>Dress Style</h1>
-            <img src="/assets/Arrow_top.svg" alt="Arrow top icon" />
+            <Image src="/assets/Arrow_top.svg" alt="Arrow top icon" />
           </div>
           <Filter content="Casual" />
           <Filter content="Formal" />

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Promotion from "../../components/promotion/Promotion";
 
 const Header = () => {
@@ -9,7 +10,7 @@ const Header = () => {
         <article className="flex items-center justify-between py-4 px-4 md:mx-25 border-b-1 border-black/10">
           <article className="flex items-center gap-4">
             <figure className="md:hidden">
-              <img
+              <Image
                 src="/assets/Menu_hamburguer.svg"
                 alt="Menu icon"
                 className="w-5 h-5"
@@ -26,7 +27,7 @@ const Header = () => {
                     Shop
                   </a>
                   <figure>
-                    <img
+                    <Image
                       src="/assets/Down_arrow.svg"
                       alt="Down arrow icon"
                       className="w-3 h-3"
@@ -58,7 +59,7 @@ const Header = () => {
           >
             <div className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full md:h-[48px]">
               <figure>
-                <img
+                <Image
                   src="/assets/Search.svg"
                   alt="Search icon"
                   className="w-4 h-4"
@@ -77,17 +78,17 @@ const Header = () => {
           <aside className="flex items-center gap-4">
             {/* Ícone de busca (mobile) */}
             <figure className="lg:hidden">
-              <img
+              <Image
                 src="/assets/Search_black.svg"
                 alt="Search icon"
                 className="w-5 h-5"
               />
             </figure>
             <figure>
-              <img src="/assets/Cart.svg" alt="Cart icon" className="w-5 h-5" />
+              <Image src="/assets/Cart.svg" alt="Cart icon" className="w-5 h-5" />
             </figure>
             <figure>
-              <img
+              <Image
                 src="/assets/Profile.svg"
                 alt="Profile icon"
                 className="w-5 h-5"

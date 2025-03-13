@@ -1,6 +1,7 @@
 import Brands from "@/components/brands/Brands";
 import Button from "@/components/button/Button";
 import StoreInformation from "@/components/store_information/StoreInformation";
+import Image from "next/image";
 
 const Banner = () => {
   return (
@@ -26,7 +27,7 @@ const Banner = () => {
 
       <article className="banner relative max-h-[448px] z-1 lg:absolute lg:w-full lg:min-h-[663px]">
         <figure className="figure-banner relative h-[448px] w-full lg:min-h-[663px]">
-          <img
+          <Image
             className="background-img object-cover object-[89%] w-full h-full"
             src="./assets/2_people.png"
             alt="2 models"
@@ -34,14 +35,14 @@ const Banner = () => {
         </figure>
         <div className="stars flex justify-between items-start max-w-[95%] min-h-[150px] relative sm:gap-15 top-[-400px] z-10 justify-end lg:top-[-550px] lg:gap-45">
           <figure className="mr-[225px] self-end">
-            <img
+            <Image
               className="max-w-[44px] lg:max-w-[56px]"
               src="./assets/Minor_star.svg"
               alt="Minor star"
             />
           </figure>
           <figure>
-            <img
+            <Image
               className="max-w-[76px] lg:max-w-[104px]"
               src="./assets/Biggest_star.svg"
               alt="Biggest star"

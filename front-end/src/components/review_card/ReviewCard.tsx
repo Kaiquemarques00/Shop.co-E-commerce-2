@@ -27,7 +27,7 @@ const ReviewCard = (props: PropsReviewCard) => {
         </figure>
       </div>
       <blockquote className="text-[clamp(14px,2vw,16px)] opacity-60">
-        "{props.comment}"
+        {`"${props.comment}"`}
       </blockquote>
     </article>
   );

@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import Discount from "@/components/discount/Discount";
 import Price from "@/components/price/Price";
 import Modal from "@/components/modal/Modal";
+import Image from "next/image";
 
 const Product = () => {
   const router = useRouter();
@@ -20,12 +21,10 @@ const Product = () => {
 
   const [src, setSrc] = useState("");
   const [selected, setSelected] = useState("");
-  const [selectedLoad, setSelectedLoad] = useState<boolean>(true);
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>();
 
   const handleClickImg = (srcValue: string) => {
-    setSelectedLoad(false);
     setSrc(srcValue);
     setSelected(srcValue);
   };
@@ -137,11 +136,11 @@ const Product = () => {
 
         <article className="flex gap-3 pt-5 text-[clamp(14px,2vw,16px)]">
           <div className="flex h-[40px] md:h-[50px] w-5/12 md:w-3/12 items-center bg-[#F0F0F0] rounded-full px-4">
-            <img src="/assets/Less.svg" alt="" className="w-[20px] h-[20px]" />
+            <Image src="/assets/Less.svg" alt="" className="w-[20px] h-[20px]" />
             <p className="w-3/3 h-[30px] flex items-center justify-center font-bold">
               1
             </p>
-            <img src="/assets/More.svg" alt="" className="w-[20px] h-[20px]" />
+            <Image src="/assets/More.svg" alt="" className="w-[20px] h-[20px]" />
           </div>
           <Button
             content="Add to Cart"

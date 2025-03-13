@@ -1,5 +1,6 @@
 import Button from "@/components/button/Button";
 import ReviewCard from "@/components/review_card/ReviewCard";
+import Image from "next/image";
 
 const ReviewsProd = () => {
   return (
@@ -11,11 +12,11 @@ const ReviewsProd = () => {
         </article>
         <article className="flex gap-2 md:gap-3">
           <div className="flex items-center px-2 bg-[#F0F0F0] rounded-full md:px-4">
-            <img src="/assets/Filter.svg" alt="Filter Icons" className="w-10"/>
+            <Image src="/assets/Filter.svg" alt="Filter Icons" className="w-10"/>
           </div>
           <div className="hidden items-center gap-5 bg-[#F0F0F0] rounded-full gap-5 px-5 w-6/12 md:flex ">
             <p>Latest</p>
-            <img src="/assets/Down_arrow.svg" alt="Down Arrow" />
+            <Image src="/assets/Down_arrow.svg" alt="Down Arrow" />
           </div>
           <Button
             content="Write a Review"

@@ -1,7 +1,6 @@
 import FooterCard from "@/components/footer_card/FooterCard";
 import Newsletter from "@/components/newsletter/Newsletter";
 import Payments from "@/components/payments/Payments";
-import Image from "next/image";
 
 export default function Footer() {
   return (

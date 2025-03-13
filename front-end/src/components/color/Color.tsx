@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface PropsColor {
     selected?: boolean;
     color: string
@@ -6,7 +8,7 @@ interface PropsColor {
 const Color = (props: PropsColor) => {
     return props.selected ? (
             <li className={`${props.color} flex justify-center items-center rounded-full w-[37px] h-[37px] md:w-[40px] md:h-[40px] border border-black/20`}>
-                <img src="/assets/verify.svg" alt="Verify icon" />
+                <Image src="/assets/verify.svg" alt="Verify icon" />
             </li>
         ) : (
             <li className={`${props.color} rounded-full w-[37px] h-[37px] md:w-[40px] md:h-[40px] border border-black/20`}></li>

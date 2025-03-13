@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 interface PropsCategoryCard {
@@ -12,7 +13,7 @@ const CategoryCard = (props: PropsCategoryCard) => {
   return (
     <article className={`${props.containerStyle ? `w-full ${props.containerStyle}` : "w-full"}`}>
       <Link href={`/categories/${props.href.toLowerCase()}`} className="relative w-11/12 w-full mx-auto h-[190px] sm:h-[240px] md:h-[310px] md:mx-0">
-        <img
+        <Image
             src={props.categoryImg}
             alt={props.alt}
             className="w-full h-full object-cover h-[190px] md:h-[310px] rounded-xl"
