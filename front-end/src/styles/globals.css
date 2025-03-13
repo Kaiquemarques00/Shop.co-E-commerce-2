@@ -1,5 +1,23 @@
 @import "tailwindcss";
-@import url("base/variables.css");
+
+@font-face {
+  font-family: "Integral-Bold";
+  src: url("/fonts/Integral_CF/Fontspring-DEMO-integralcf-bold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi-Variable";
+  src: url("/fonts/Satoshi/Satoshi-Variable.woff2") format("woff2"),
+    url("/fonts/Satoshi/Satoshi-Variable.woff") format("woff"),
+    url("/fonts/Satoshi/Satoshi-Variable.ttf") format("truetype");
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: normal;
+}
 
 .footer-gradient {
   @apply w-full;
@@ -14,13 +32,13 @@
 }
 
 body {
-  font-family: var(--font-primary);
+  font-family: 'Satoshi-Variable';
   background: var(--white-color);
   color: var(--black-color);
 }
 
 h1 {
-  font-family: var(--font-secondary);
+  font-family: 'Integral-Bold';
   font-weight: bold;
 }
 

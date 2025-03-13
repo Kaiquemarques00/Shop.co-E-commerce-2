@@ -24,7 +24,7 @@ const Browse = () => {
       <article className="grid grid-cols-1 gap-y-5 md:gap-x-5 md:grid-cols-3 pb-5 px-5 lg:px-12 md:pb-10">
 
       {categories.map((category: any, index) => (
-          <CategoryCard key={category.id} href={category.name_category} categoryImg={`./assets/image${index + 1}_category.png`} alt="A person in casual clothing" title={category.name_category} containerStyle={index === 0 || index === 3 ? "md:col-span-1" : "md:col-span-2"}/>
+          <CategoryCard key={category.id} href={category.name_category} categoryImg={`/assets/image${index + 1}_category.png`} alt="A person in casual clothing" title={category.name_category} containerStyle={index === 0 || index === 3 ? "md:col-span-1" : "md:col-span-2"}/>
       ))}
       </article>
     </div>
