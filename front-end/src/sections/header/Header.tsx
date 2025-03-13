@@ -6,7 +6,7 @@ const Header = () => {
       <header>
         <Promotion />
 
-        <article className="flex items-center justify-between py-4 px-4 md:px-8">
+        <article className="flex items-center justify-between py-4 px-4 md:mx-25 border-b-1 border-black/10">
           <article className="flex items-center gap-4">
             <figure className="md:hidden">
               <img
@@ -19,7 +19,7 @@ const Header = () => {
             <h1 className="text-xl font-bold">SHOP.CO</h1>
           </article>
           <nav className="hidden sm:block">
-            <ul className="flex items-center gap-6 text-sm">
+            <ul className="flex items-center gap-6 text-base">
               <li>
                 <div className="flex items-center gap-1">
                   <a href="#" className="hover:underline">
@@ -56,7 +56,7 @@ const Header = () => {
             action="/search"
             className="hidden lg:block w-full max-w-md mx-8"
           >
-            <div className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full">
+            <div className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full md:h-[48px]">
               <figure>
                 <img
                   src="/assets/Search.svg"

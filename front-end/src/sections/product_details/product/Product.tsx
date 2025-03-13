@@ -95,17 +95,22 @@ const Product = () => {
             {product.name_product}
           </h1>
           <ul className="flex">
-            <Rating rating={product.rating} totalStars={5} />
+            <Rating rating={product.rating} totalStars={5} style/>
             <li>
-              <p className="ml-2 ">
+              <p className="ml-2 flex">
                 {product.rating}
                 <span className="opacity-60">/5</span>
               </p>
             </li>
           </ul>
           <div className="flex gap-2">
-            <p className="font-bold text-lg">{product.price_discount}</p>
-            <Price price={product.price} discount={product.discount} />
+            {product.price_discount ? (
+              <p className="font-bold text-[clamp(24px,2vw,32px)]">{product.price_discount}</p>
+            ) : (
+              <p className="hidden"></p>
+            )}
+            
+            <Price price={product.price} discount={product.discount} style="text-[clamp(24px,2vw,32px)]"/>
             <Discount discount={product.discount} />
           </div>
           <p className="opacity-60">{product.description}</p>
@@ -114,9 +119,9 @@ const Product = () => {
         <article className="py-4 border-y border-[rgba(0,0,0,0.1)] text-[clamp(14px,2vw,16px)]">
           <p className="opacity-60 mb-3">Select Colors</p>
           <ul className="flex gap-2">
-            <Color selected color={`bg-[${product.color[0]}]`} />
-            <Color color={`bg-[${product.color[1]}]`} />
-            <Color color={`bg-[${product.color[2]}]`} />
+            <Color selected color={`bg-[#4F4631]`} />
+            <Color color={`bg-[#314F4A]`} />
+            <Color color={`bg-[#31344F]`} />
           </ul>
         </article>
 

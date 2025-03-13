@@ -29,9 +29,9 @@ const ReviewsProd = () => {
       <article className="grid md:grid-cols-2 gap-5">
             <ReviewCard rating={4.5} name="Samantha D." comment="I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt."/>
             <ReviewCard rating={4.0} name="Samantha D." comment="I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt."/>
-            <ReviewCard rating={3.5} name="Samantha D." comment="I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt."/>
-            <ReviewCard rating={4.0} name="Samantha D." comment="I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt."/>
-            <ReviewCard rating={5.0} name="Samantha D." comment="I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt."/>
+            <ReviewCard rating={3.5} name="Samantha D." blur="hidden md:block" comment="I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt."/>
+            <ReviewCard rating={4.0} name="Samantha D." blur="hidden md:block" comment="I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt."/>
+            <ReviewCard rating={5.0} name="Samantha D." blur="hidden md:block" comment="I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt."/>
             <ReviewCard rating={2.5} name="Samantha D." comment="I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt."/>
       </article>
       <article className="flex justify-center mt-8 w-7/12 lg:w-3/12 m-auto">

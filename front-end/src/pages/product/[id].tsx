@@ -11,23 +11,22 @@ const productDetails = () => {
     return ( 
         <>
             <Header />
-            <nav>
-                <Link href="/home">
+            <nav className="flex gap-1 px-5 md:px-25 pt-4 md:py-5 text-[clamp(14px,2vw,16px)]">
+                <Link href="/home" className="opacity-60">
                     Home
                 </Link>
                 {`>`}
-                <Link href="#">
+                <Link href="#" className="opacity-60">
                     Shop
                 </Link>
                 {`>`}
-                <Link href="#">
+                <Link href="#" className="opacity-60">
                     Men
                 </Link>
                 {`>`}
-                <Link href="#">
+                <Link href="#" className="font-bold opacity-100">
                     T-shirts
                 </Link>
-                {`>`}
             </nav>
             <Product/>
             <Tabs />

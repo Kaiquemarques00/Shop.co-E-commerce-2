@@ -25,7 +25,7 @@ const ProductCard = (props: PropsProductCard) => {
         {props.title}
       </h2>
       <ul className="flex my-1">
-        <Rating rating={props.rating} totalStars={5} />
+        <Rating rating={props.rating} totalStars={5} style />
         <li>
           <p className="ml-2 text-[clamp(12px,2vw,14px)]">
             {props.rating}/<span className="opacity-60">5</span>

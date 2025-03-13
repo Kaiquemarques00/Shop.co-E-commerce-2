@@ -13,7 +13,7 @@ const ReviewCard = (props: PropsReviewCard) => {
   return (
     <article className={`border border-gray-300 p-5 lg:p-8 rounded-[30px] transition-transform duration-500 ease-in-out lg:min-w-2/7 ${props.blur}`}>
       <ul className="flex gap-1 mb-3">
-        <Rating rating={props.rating} totalStars={5} />
+        <Rating rating={props.rating} totalStars={5}  style/>
       </ul>
       <div className="flex items-center w-[150px] mb-3">
         <h2 className="text-[clamp(16px,2vw,20px)] mr-2">{props.name}</h2>

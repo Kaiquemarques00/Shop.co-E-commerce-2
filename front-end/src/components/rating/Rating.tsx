@@ -5,6 +5,7 @@ interface PropsRating {
   rating: number;
   totalStars: number;
   card?: boolean;
+  style?: boolean;
 }
 
 const Rating = (props: PropsRating) => {
@@ -25,7 +26,7 @@ const Rating = (props: PropsRating) => {
     <>
         {stars.map((star, index) =>
           star ? (
-            <li key={index} className="w-[16px] h-[16px] md:w-[19px] md:h-[19px]">
+            <li key={index} className={props.style ? "w-[19px] h-[19px] md:w-[25px] md:h-[25px]" : "w-[16px] h-[16px] md:w-[19px] md:h-[19px]"}>
                 <img src={star} alt="Star" className="star h-full" />
             </li>
           ) : null
