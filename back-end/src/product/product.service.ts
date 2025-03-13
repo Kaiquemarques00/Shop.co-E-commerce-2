@@ -15,9 +15,9 @@ export class ProductService {
   ) {}
 
   async create(data: CreateProductDTO, file: Express.Multer.File) {
-    // const upload = await this.cloudinary.uploadImage(file);
-    // const imageUrl = upload.url;
-    console.log(file)
+    const upload = await this.cloudinary.uploadImage(file);
+    const imageUrl = upload.url;
+    console.log(file);
 
     const product = await this.prisma.product.create({
       data: {
@@ -25,7 +25,7 @@ export class ProductService {
         amount: Number(data.amount),
         rating: Number(data.rating),
         discount: data.discount ? Number(data.discount) : null,
-        // url_image: imageUrl
+        url_image: imageUrl,
       },
     });
 
