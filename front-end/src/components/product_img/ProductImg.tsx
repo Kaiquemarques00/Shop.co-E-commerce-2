@@ -1,34 +1,28 @@
 interface PropsProductImg {
-    productImg: string;
-    styles: string;
-    onClick?: (src: any) => void;
-    selected?: string;
-    selectedLoad?: boolean;
+  productImg: string;
+  styles: string;
+  onClick?: (src: string) => void;
+  selected?: string;
 }
 
-const ProductImg = (props: PropsProductImg) => {
+const ProductImg = ({
+  productImg,
+  styles,
+  onClick,
+  selected,
+}: PropsProductImg) => {
+  const isSelected = selected === productImg;
 
-    const handleClick = () => {
-        if (props.onClick) {
-          props.onClick(props.productImg); // Chama onClick apenas se estiver definido
-        }
-      };
+  return (
+    <img
+      src={productImg}
+      alt="T-shirt"
+      className={`rounded-[20px] border-1 ${
+        isSelected ? "border-black" : "border-transparent"
+      } ${styles}`}
+      onClick={() => onClick && onClick(productImg)}
+    />
+  );
+};
 
-    return props.selectedLoad ? (
-        <img
-            src={props.productImg}
-                alt="T-shirt"
-                className={props.styles ? `rounded-[20px] border-1 border-black ${props.styles} ${props.selected}` : "rounded-[20px] border-1 border-black"}
-                onClick={handleClick}
-        />
-    ) : (
-        <img
-            src={props.productImg}
-                alt="T-shirt"
-                className={props.styles ? `rounded-[20px] ${props.styles} ${props.selected}` : "rounded-[20px]"}
-                onClick={handleClick}
-        />
-    )
-}
- 
 export default ProductImg;

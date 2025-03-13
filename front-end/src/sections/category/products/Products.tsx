@@ -21,14 +21,14 @@ const Products = () => {
     const fetchData = async () => {
       try {
         const responseCategory = await axios.get(
-          `https://shop-co-e-commerce-2.onrender.com/categories/${category_name}`
+          `https://shop-co-e-commerce-2-1.onrender.com/categories/${category_name}`
         );
 
         setCategory(responseCategory.data);
 
         // Obter os produtos com base na página atual
         const responseProduct = await axios.get(
-          `https://shop-co-e-commerce-2.onrender.com/products/category/${responseCategory.data[0].id}?page=${currentPage}`
+          `https://shop-co-e-commerce-2-1.onrender.com/products/category/${responseCategory.data[0].id}?page=${currentPage}`
         );
 
         setProducts(responseProduct.data); // Definindo os produtos na página atual
@@ -87,7 +87,7 @@ const Products = () => {
           <ProductCard
             key={product.id}
             href={`/product/${product.id}`}
-            productImg={`http://localhost:3001/uploads${product.images[0].url}`}
+            productImg={product.url_image}
             title={product.name_product}
             rating={product.rating}
             price={product.price}

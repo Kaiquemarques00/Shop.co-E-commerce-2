@@ -18,8 +18,8 @@ const Product = () => {
 
   const [product, setProduct] = useState<any>(null);
 
-  const [src, setSrc] = useState('');
-  const [selected, setSelected] = useState('');
+  const [src, setSrc] = useState("");
+  const [selected, setSelected] = useState("");
   const [selectedLoad, setSelectedLoad] = useState<boolean>(true);
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>();
@@ -27,8 +27,7 @@ const Product = () => {
   const handleClickImg = (srcValue: string) => {
     setSelectedLoad(false);
     setSrc(srcValue);
-    console.log(`O src clicado é: ${srcValue}`);
-    setSelected(srcValue)
+    setSelected(srcValue);
   };
 
   const handleClickAddCart = () => {
@@ -42,69 +41,74 @@ const Product = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://shop-co-e-commerce-2.onrender.com/products/${id}`
+          `https://shop-co-e-commerce-2-1.onrender.com/products/${id}`
         );
 
         setProduct(response.data);
-        setSelected(`https://shop-co-e-commerce-2.onrender.com/uploads${response.data.images[0].url}`)
+        setSrc(response.data.url_image);
+
+        if (response.data && response.data.url_image) {
+          setSelected(response.data.url_image);
+        }
       } catch (error) {
         console.log(error);
       }
     };
 
     fetchData();
-    
   }, [id]);
 
   return product ? (
     <section className="p-4 md:px-25 flex flex-col md:flex-row md:gap-10">
       <article className="grid grid-cols-3 gap-2 md:grid-cols-[150px_1fr] md:gap-3 md:grid-rows-3 md:w-6/12">
         <ProductImg
-          productImg={src ? src : `http://localhost:3001/uploads${product.images[0].url}`}
+          productImg={
+            src
+              ? src
+              : `https://res.cloudinary.com/dxry5frky/image/upload/v1741864205/tqmawz4hmb0hjapjm6ob.png`
+          }
           styles={`col-span-3 w-full h-full md:col-start-2 md:row-span-3`}
         />
         <ProductImg
-          productImg={`http://localhost:3001/uploads${product.images[0].url}`}
+          productImg={product.url_image}
           styles={`md:col-start-1 md:row-start-1 md:h-12/12 h-[120px] w-[115px] lg:w-full`}
           onClick={handleClickImg}
-          selected={selected === `http://localhost:3001/uploads${product.images[0].url}` ? "border-1 border-black" : ""}
-          selectedLoad={selectedLoad}
+          selected={selected}
         />
         <ProductImg
-          productImg={`http://localhost:3001/uploads${product.images[1].url}`}
+          productImg="https://res.cloudinary.com/dxry5frky/image/upload/v1741864610/wmbelbvojmeowkrfzifk.png"
           styles={`md:col-start-1 md:h-12/12 h-[120px] w-[115px] lg:w-full`}
           onClick={handleClickImg}
-          selected={selected === `http://localhost:3001/uploads${product.images[1].url}` ? "border-1 border-black" : ""}
+          selected={selected}
         />
         <ProductImg
-          productImg={`http://localhost:3001/uploads${product.images[2].url}`}
+          productImg="https://res.cloudinary.com/dxry5frky/image/upload/v1741864449/grobr0dju3qc3gvdegkz.png"
           styles={`md:col-start-1 md:h-12/12 h-[120px] w-[115px] lg:w-full`}
           onClick={handleClickImg}
-          selected={selected === `http://localhost:3001/uploads${product.images[2].url}` ? "border-1 border-black" : ""}
+          selected={selected}
         />
       </article>
 
       <article className="md:w-6/12">
         <article className="flex flex-col gap-2 text-[clamp(14px,2vw,16px)] py-4 md:pt-0">
           <h1 className="text-[clamp(24px,3vw,40px)] pr-25 md:p-0">
-          {product.name_product}
+            {product.name_product}
           </h1>
           <ul className="flex">
             <Rating rating={product.rating} totalStars={5} />
             <li>
               <p className="ml-2 ">
-              {product.rating}<span className="opacity-60">/5</span>
+                {product.rating}
+                <span className="opacity-60">/5</span>
               </p>
             </li>
           </ul>
           <div className="flex gap-2">
             <p className="font-bold text-lg">{product.price_discount}</p>
-            <Price price={product.price} discount={product.discount}/>
-            <Discount discount={product.discount}/>
+            <Price price={product.price} discount={product.discount} />
+            <Discount discount={product.discount} />
           </div>
-          <p className="opacity-60">
-          {product.description}
-          </p>
+          <p className="opacity-60">{product.description}</p>
         </article>
 
         <article className="py-4 border-y border-[rgba(0,0,0,0.1)] text-[clamp(14px,2vw,16px)]">
@@ -143,11 +147,11 @@ const Product = () => {
           />
           {isModalOpen && (
             <Modal
-            isOpen={isModalOpen}
-            onClose={() => setIsModalOpen(false)}
-            title="Produto Adicionado ao Carrinho"
-            message="Seu produto foi adicionado com sucesso!"
-          />
+              isOpen={isModalOpen}
+              onClose={() => setIsModalOpen(false)}
+              title="Produto Adicionado ao Carrinho"
+              message="Seu produto foi adicionado com sucesso!"
+            />
           )}
         </article>
       </article>
