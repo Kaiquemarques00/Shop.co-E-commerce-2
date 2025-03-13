@@ -23,7 +23,7 @@ const Selling = () => {
 
       <article className="flex w-full justify-around overflow-hidden mb-5 relative">
       {products.map((product: any) => (
-          <ProductCard key={product.id} href={`/product/${product.id}`} productImg={`http://localhost:3001/uploads${product.images[0].url}`} title={product.name_product} rating={product.rating} price={product.price} discount={product.discount} priceWithDiscount={product.price_discount}/>
+          <ProductCard key={product.id} href={`/product/${product.id}`} productImg={product.url_image} title={product.name_product} rating={product.rating} price={product.price} discount={product.discount} priceWithDiscount={product.price_discount}/>
         ))}
       </article>
 
