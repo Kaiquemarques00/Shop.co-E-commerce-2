@@ -10,22 +10,22 @@ const Filters = () => {
   const [price, setPrice] = useState([50, 200]);
 
   return (
-    <section className="hidden md:flex flex-col lg:w-3/12 lg:p-5 border border-black/20 rounded-2xl justify-between">
-      <article className="border-b border-black/10 py-5">
-        <div className="flex justify-between">
-          <h1>Filters</h1>
+    <section className="hidden md:flex flex-col lg:w-3/12 lg:p-5 border border-black/20 rounded-2xl h-[1220px]">
+      <article className="border-b border-black/10">
+        <div className="flex justify-between border-b border-black/10">
+          <h2 className="text-[20px] font-bold pb-2">Filters</h2>
           <img src="/assets/Filter.svg" alt="Filter icon" />
         </div>
-        <Filter content="T-shirts" />
+        <Filter content="T-shirts" style="pt-4"/>
         <Filter content="Shorts" />
         <Filter content="Shirts" />
         <Filter content="Hoodie" />
-        <Filter content="Jeans" />
+        <Filter content="Jeans" style="pb-4"/>
       </article>
 
       <article className="border-b border-black/10 py-5">
-        <div className="flex justify-between">
-          <h1>Price</h1>
+        <div className="flex justify-between pb-3">
+          <h2 className="text-[20px] font-bold pb-2">Price</h2>
           <img src="/assets/Arrow_top.svg" alt="Arrow top icon" />
         </div>
         <Slider
@@ -42,11 +42,11 @@ const Filters = () => {
       </article>
 
       <article className="border-b border-black/10 py-5">
-        <div className="flex justify-between">
-          <h1>Price</h1>
+        <div className="flex justify-between pb-3">
+          <h2 className="text-[20px] font-bold pb-2">Colors</h2>
           <img src="/assets/Arrow_top.svg" alt="Arrow top icon" />
         </div>
-        <ul className="grid grid-cols-5 gap-2 place-items-center">
+        <ul className="grid grid-cols-5 gap-3 place-items-center">
           <Color color="bg-[#00C12B]" />
           <Color color="bg-[#F50606]" />
           <Color color="bg-[#F5DD06]" />
@@ -61,8 +61,8 @@ const Filters = () => {
       </article>
 
       <article className="border-b border-black/10 py-5">
-        <div className="flex justify-between">
-          <h1>Size</h1>
+        <div className="flex justify-between pb-3">
+          <h2 className="text-[20px] font-bold pb-2">Size</h2>
           <img src="/assets/Arrow_top.svg" alt="Arrow top icon" />
         </div>
         <div className="grid grid-cols-2 gap-3">
@@ -79,19 +79,19 @@ const Filters = () => {
       </article>
 
       <article className="py-5">
-        <div className="flex justify-between">
-          <h1>Dress Style</h1>
+        <div className="flex justify-between pb-3">
+          <h2 className="text-[20px] font-bold pb-2">Dress Style</h2>
           <img src="/assets/Arrow_top.svg" alt="Arrow top icon" />
         </div>
         <Filter content="Casual" />
         <Filter content="Formal" />
         <Filter content="Party" />
-        <Filter content="Gym" />
+        <Filter content="Gym"  style="pb-5"/>
         <Button
             content="Apply Filter"
             bgColor="bg-black"
             contentColor="text-white h-[40px] md:h-[50px]"
-            containerStyle="lg:mx-0"
+            containerStyle="lg:mx-0 w-full"
           />
       </article>
     </section>

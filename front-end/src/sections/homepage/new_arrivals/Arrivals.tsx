@@ -19,7 +19,7 @@ const Arrivals = () => {
 
   return (
     <section className="flex flex-wrap justify-around mb-5 lg:flex-col">
-      <h1 className="text-center py-10 text-[clamp(32px,4vw,48px)]">
+      <h1 className="text-center py-10 text-[clamp(32px,4vw,48px)] w-full">
         New Arrivals
       </h1>
 

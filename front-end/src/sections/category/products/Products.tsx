@@ -51,7 +51,7 @@ const Products = () => {
   return (
     <section className="w-full p-4">
       <article className="flex justify-between items-center mb-5 text-[clamp(14px,2vw,16px)]">
-        <div className="flex gap-2 items-end">
+        <div className="flex gap-2 items-end w-full md:justify-between">
           <h2 className="text-[24px] font-bold">Casual</h2>
           <div className="flex gap-2 items-center">
             <p className="opacity-60 h-[25px]">
@@ -67,7 +67,7 @@ const Products = () => {
             />
           </div>
         </div>
-        <div className="w-[32px] h-[32px] rounded-full flex justify-center items-center bg-[#F1F1F1]">
+        <div className="md:hidden w-[35px] h-[35px] rounded-full flex justify-center items-center bg-[#F1F1F1]">
           <img
             src="/assets/Filter.svg"
             alt="Filter icon"
@@ -94,7 +94,7 @@ const Products = () => {
             discount={product.discount}
             priceWithDiscount={product.price_discount}
             style="w-full !m-0"
-            styleImg="!h-[175px]"
+            styleImg='md:w-[295px] md:h-[298px]'
           />
         ))}
       </article>

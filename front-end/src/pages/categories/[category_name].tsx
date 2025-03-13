@@ -8,16 +8,16 @@ const Category = () => {
   return (
     <>
       <Header />
-      <nav>
-                <Link href="/home">
+      <nav className="flex gap-1 px-5 md:px-25 pt-4 md:py-5 text-[clamp(14px,2vw,16px)]">
+                <Link href="/home" className="opacity-60">
                     Home
                 </Link>
                 {`>`}
-                <Link href="#">
+                <Link href="#" className="font-bold opacity-100">
                     Casual
                 </Link>
             </nav>
-      <section className="lg:p-25 flex gap-5">
+      <section className="lg:px-25 flex gap-5">
         <Filters />
         <Products />
       </section>
