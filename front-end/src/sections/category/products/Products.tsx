@@ -49,7 +49,7 @@ const Products = () => {
     <section className="w-full p-4">
       <article className="flex justify-between items-center mb-5 text-[clamp(14px,2vw,16px)]">
         <div className="flex gap-2 items-end w-full md:justify-between">
-          <h2 className="text-[24px] font-bold">Casual</h2>
+          <h2 className="text-[24px] font-bold">{category_name}</h2>
           <div className="flex gap-2 items-center">
             <p className="opacity-60 h-[25px]">
               Showing {(currentPage - 1) * productsPerPage + 1}-
